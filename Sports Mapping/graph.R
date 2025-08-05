@@ -1,7 +1,7 @@
 library(tidyverse)
 library(ggrepel)
 
-df <- readxl::read_xlsx('data/Start_Specialisationg_Peak_Age.xlsx', sheet = 'Sheet2') %>% 
+df <- readxl::read_xlsx('data/Start_Specialisationg_Peak_Age_2504.xlsx', sheet = 'Sheet2') %>% 
   janitor::clean_names() %>% 
   select(sport:average_peak_age) %>% 
   drop_na()
@@ -27,21 +27,21 @@ df %>%
            color="black", size = 2.5)+
   annotate(geom="text", x=19, y=11, label="Early Specialisation",
            color="black", size = 2.5) +
-  annotate(geom="text", x=19, y=14, label="Intermediate Specialisation",
+  annotate(geom="text", x=19=8, y=14, label="Intermediate Specialisation",
            color="black", size = 2.5)+
   annotate(geom="text", x=19, y=17, label="Late Specialisation",
            color="black", size = 2.5) +
   theme_minimal()+
   labs(x = 'mean starting age', y = 'mean specialisation age')
         
-## extra code 
-# df %>% 
-#   ggplot()+
-#   geom_segment(aes(y=sport, yend = sport, x = specialisation_age, xend = average_peak_age), size = 4, color = 'skyblue2' ) +
-#   geom_point(aes(y = sport, x = start_age), colour = 'skyblue4') +
-#   xlab('age') +
-#   scale_x_continuous(breaks=c(0,5,10, 15, 20, 25, 30, 35, 40, 45))
-# 
+# extra code
+df %>%
+  ggplot()+
+  geom_segment(aes(y=sport, yend = sport, x = specialisation_age, xend = average_peak_age), size = 4, color = 'skyblue2' ) +
+  # geom_point(aes(y = sport, x = average_peak_age), colour = 'skyblue4') +
+  xlab('age') +
+  scale_x_continuous(breaks=c(0,5,10, 15, 20, 25, 30, 35, 40, 45))
+
 # 
 # df %>% 
 #   ggplot()+
